@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architect-project version="1.0" appversion="1.0.6">
+ <project-name>Syndome_AR_ERD_V0.7</project-name>
+ <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
+ <project-data-sources>
+  <data-source id="DS0">
+   <property key="Logical" value="PlayPen Database" />
+   <property key="JDBC URL" value="" />
+   <property key="UID" value="" />
+   <property key="PWD" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.database" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.port" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.hostname" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.login" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.password" value="" />
+  </data-source>
+ </project-data-sources>
+ <source-databases>
+ </source-databases>
+ <target-database id="ppdb" dbcs-ref="DS0">
+  <table id="TAB1" populated="true" UUID="3ec1fd59-0729-44e2-84a7-4e11d1981939" name="ar_invoice" objectType="TABLE" physicalName="ar_invoice" >
+   <remarks>จัดเก็บแบบ History คือไม่ Updated
+ข้อมูลเดิม
+ARTRN INNER JOIN ARMAS ON ARTRN.CUSCOD = ARMAS.CUSCOD</remarks>
+   <folder id="FOLTAB11" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL2" populated="true" UUID="5c179e84-a46d-42f6-b389-0f5d02473c28" autoIncrement="false" autoIncrementSequenceName="ar_invoice_invoice_no_seq" defaultValue="" name="invoice_no" nullable="0" physicalName="invoice_no" precision="15" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>เลขที่ Invoice
+ARTRN.DOCNUM
+WHERE ARTRN.RECTYP = 3</remarks>
+    </column>
+    <column id="COL3" populated="true" UUID="7797076d-af15-4537-997e-85b071c01e8e" autoIncrement="false" autoIncrementSequenceName="ar_invoice_billing_due_date_seq" defaultValue="" name="appoint_date" nullable="0" physicalName="appoint_date" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>วันที่ครบกำหนดชำระ = วันที่ลูกค้านัดรับเช็ค
+arbil.appdat -- Update
+DEFAULT: &apos;1899-12-31&apos;</remarks>
+    </column>
+    <column id="COL4" populated="true" UUID="d1377af8-4137-488a-b781-7771efcbb134" autoIncrement="false" autoIncrementSequenceName="ar_invoice_province_seq" defaultValue="" name="province_name" nullable="0" physicalName="province_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ar_customer.province_name</remarks>
+    </column>
+    <column id="COL5" populated="true" UUID="fb3a190b-0ccf-4a70-a1a2-6c49217e50f4" autoIncrement="false" autoIncrementSequenceName="ar_invoice_Area_seq" defaultValue="" name="district_name" nullable="0" physicalName="district_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ar_customer.district_name</remarks>
+    </column>
+    <column id="COL6" populated="true" UUID="209f89e3-1f69-41a7-ae3b-7a60908ae860" autoIncrement="false" autoIncrementSequenceName="ar_invoice_customer_code_seq" defaultValue="" name="customer_code" nullable="0" physicalName="customer_code" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ARTRN.CUSCOD</remarks>
+    </column>
+    <column id="COL7" populated="true" UUID="9b8c1113-187b-4185-94d7-0330354c3c05" autoIncrement="false" autoIncrementSequenceName="ar_invoice_customer_name_seq" defaultValue="" name="customer_name" nullable="0" physicalName="customer_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ARMAS.CUSNAM</remarks>
+    </column>
+    <column id="COL8" populated="true" UUID="1db616b8-3cd8-4ea8-85af-9e5be4058c41" autoIncrement="false" autoIncrementSequenceName="ar_invoice_phone_no_seq" defaultValue="" name="phone_no" nullable="0" physicalName="phone_no" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ARMAS.TELNUM</remarks>
+    </column>
+    <column id="COL9" populated="true" UUID="ec1ddecf-7063-45d9-b528-974b1357d77d" autoIncrement="false" autoIncrementSequenceName="ar_invoice_bill_date_seq" defaultValue="" name="invoice_due_date" nullable="0" physicalName="invoice_due_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>วันที่ครบกำหนดชำระ = วันที่นัดรับเช็ค
+ARTRN.DUEDAT(User คีย์เอง ตอนเกิด invoice) = arbil.appdat(ลูกค้านัด เกิดตอนเอาบิลไปวางที่ลูกค้า)</remarks>
+    </column>
+    <column id="COL10" populated="true" UUID="96ac1211-2e93-4896-9687-3f1d08b183eb" autoIncrement="false" autoIncrementSequenceName="ar_invoice_invoice_date_seq" defaultValue="" name="invoice_date" nullable="0" physicalName="invoice_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>วันที่ Invoice</remarks>
+    </column>
+    <column id="COL11" populated="true" UUID="d11c8e13-a0f8-477f-ac35-1aef91f351e8" autoIncrement="false" autoIncrementSequenceName="ar_invoice_New Column_seq" defaultValue="" name="invoice_amount" nullable="0" physicalName="invoice_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks>ยอดเงินในแต่ละ Invoice
+ARTRN.TOTAL -- AFTDISC</remarks>
+    </column>
+    <column id="COL12" populated="true" UUID="cfa2ce9e-4e69-4209-9266-451f5fe4ac40" autoIncrement="false" autoIncrementSequenceName="ar_invoice_bill_no_seq" defaultValue="" name="bill_no" nullable="0" physicalName="bill_no" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>เลขที่วางบิล
+ARTRN.BILNUM</remarks>
+    </column>
+    <column id="COL13" populated="true" UUID="157f2ba5-5e25-4331-8154-34d98aaf53bd" autoIncrement="false" autoIncrementSequenceName="ar_invoice_bill_date_seq" defaultValue="" name="billing_date" nullable="0" physicalName="billing_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>วันที่ครบกำหนดวางบิล
+คำนวณจาก ETL</remarks>
+    </column>
+    <column id="COL14" populated="true" UUID="31c36c37-ac8f-4d62-9c25-c353ba428ada" autoIncrement="false" autoIncrementSequenceName="ar_invoice_receipt_amount_seq" defaultValue="" name="receipt_amount" nullable="0" physicalName="receipt_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks>ยอดชำระ
+artrn.rcvamt</remarks>
+    </column>
+    <column id="COL15" populated="true" UUID="113d2702-ed8b-4bb4-bfe5-007140802704" autoIncrement="false" autoIncrementSequenceName="ar_invoice_status_seq" defaultValue="" name="bill_status" nullable="0" physicalName="bill_status" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>สถานะการชำระ
+CASE WHEN receipt_amount = 0 THEN &quot;ยังไม่ชำระ&quot;
+CASE WHEN receipt_amount = invoice_amount THEN &quot;ชำระแล้ว&quot;
+CASE WHEN receipt_amount &lt; invoice_amount THEN &quot;ชำระแล้วบางส่วน&quot;</remarks>
+    </column>
+    <column id="COL16" populated="true" UUID="9696161f-f724-434f-a106-4c75af63dfd7" autoIncrement="false" autoIncrementSequenceName="ar_invoice_credit_term_seq" defaultValue="" name="credit_term" nullable="0" physicalName="credit_term" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL17" populated="true" UUID="8decf52f-bd5b-4eb9-bb20-1c10d81789c3" autoIncrement="false" autoIncrementSequenceName="ar_invoice_credit_limit_seq" defaultValue="" name="credit_limit" nullable="0" physicalName="credit_limit" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL18" populated="true" UUID="ed98c14b-eed5-4dc7-aaaa-1a722ba8a0f7" autoIncrement="false" autoIncrementSequenceName="ar_invoice_employee_code_seq" defaultValue="" name="salesman_code" nullable="0" physicalName="salesman_code" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ARTRN JOIN OESLM
+WHERE ARTRN.SLMCOD = OESLM.SLMCOD</remarks>
+    </column>
+    <column id="COL19" populated="true" UUID="e7cb0c62-b311-4057-bcfa-fa5d69d85724" autoIncrement="false" autoIncrementSequenceName="ar_invoice_salesman_name_seq" defaultValue="" name="salesman_name" nullable="0" physicalName="salesman_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>OESLM.SLMNAM</remarks>
+    </column>
+    <column id="COL20" populated="true" UUID="ec0c71e2-0321-419b-9d04-fbcbc6ca3dd5" autoIncrement="false" autoIncrementSequenceName="ar_invoice_remark_seq" defaultValue="" name="bill_remark" nullable="0" physicalName="bill_remark" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>หมายเหตุการชำระ</remarks>
+    </column>
+    <column id="COL21" populated="true" UUID="17cba932-8dfd-49a4-9149-cc285ae7fac9" autoIncrement="false" autoIncrementSequenceName="ar_invoice_invoice_status_seq" defaultValue="" name="invoice_status" nullable="0" physicalName="invoice_status" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>หนี้สงสัยจะสูญ, หนี้ปกติ, ยกเลิก
+กรณียกเลิก ให้จับจาก artrnrm</remarks>
+    </column>
+    <column id="COL22" populated="true" UUID="4795547c-0458-483f-baca-2066db208748" autoIncrement="false" autoIncrementSequenceName="ar_invoice_created_dttm_seq" defaultValue="" name="created_dttm" nullable="0" physicalName="created_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    <column id="COL23" populated="true" UUID="d22bcd8d-334a-4fc4-8f5b-892b16f724c1" autoIncrement="false" autoIncrementSequenceName="ar_invoice_updated_dttm_seq" defaultValue="" name="updated_dttm" nullable="0" physicalName="updated_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB13" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB12" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB14" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX24" populated="true" UUID="9a5dece3-d170-4c61-9cff-8fd1829ca76d" clustered="false" name="ar_invoice_pk" physicalName="ar_invoice_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC25" populated="true" UUID="feeecdb9-161a-4a6b-a1a2-13fb2e29bccf" ascendingOrDescending="UNSPECIFIED" column-ref="COL2" name="invoice_no" physicalName="invoice_no" />
+     <index-column id="IDC26" populated="true" UUID="fcf747a1-5bda-4fdd-b522-564119608e2a" ascendingOrDescending="UNSPECIFIED" column-ref="COL3" name="appoint_date" physicalName="appoint_date" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB27" populated="true" UUID="0feebe9a-8052-4691-ae2b-326d30765198" name="ar_bill" objectType="TABLE" physicalName="ar_bill" >
+   <remarks>ARBIL INNER JOIN ARMAS ON ARBIL.CUSCOD = ARMAS.CUSCOD
+// For Report 2 and 7</remarks>
+   <folder id="FOLTAB271" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL28" populated="true" UUID="b431100f-dbc9-427b-99aa-b3761bc282c1" autoIncrement="false" autoIncrementSequenceName="ar_bill_bill_no_seq" defaultValue="" name="bill_no" nullable="0" physicalName="bill_no" precision="15" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL29" populated="true" UUID="9b5d1a59-7139-4fee-8c97-e5159144c6ba" autoIncrement="false" autoIncrementSequenceName="ar_bill_billing_date_seq" defaultValue="" name="billing_date" nullable="0" physicalName="billing_date" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>วันที่ครบกำหนดวางบิล
+คำนวณจาก ETL</remarks>
+    </column>
+    <column id="COL30" populated="true" UUID="736a2321-fa14-4d97-9452-6126ec8cadbb" autoIncrement="false" autoIncrementSequenceName="ar_bill_area_seq" defaultValue="" name="district_name" nullable="0" physicalName="district_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ar_customer.district_name
+เขต</remarks>
+    </column>
+    <column id="COL31" populated="true" UUID="e5df2165-662f-4acc-93cf-b85d946c170e" autoIncrement="false" autoIncrementSequenceName="ar_bill_customer_no_seq" defaultValue="" name="customer_code" nullable="0" physicalName="customer_code" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ARBIL.CUSCOD</remarks>
+    </column>
+    <column id="COL32" populated="true" UUID="e2a66be6-26d7-4946-9778-547c529edb24" autoIncrement="false" autoIncrementSequenceName="ar_bill_customer_name_seq" defaultValue="" name="customer_name" nullable="0" physicalName="customer_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ARMAS.CUSNAM</remarks>
+    </column>
+    <column id="COL33" populated="true" UUID="e41997c6-b8a7-41ce-80f6-808c9806878d" autoIncrement="false" autoIncrementSequenceName="ar_bill_phone_no_seq" defaultValue="" name="phone_no" nullable="0" physicalName="phone_no" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL34" populated="true" UUID="6041111b-4f84-4695-9d4b-de4620d8c890" autoIncrement="false" autoIncrementSequenceName="ar_bill_bill_date_seq" defaultValue="" name="doc_date" nullable="0" physicalName="doc_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>วันที่สร้างใบวางบิล
+arbil.bildat</remarks>
+    </column>
+    <column id="COL35" populated="true" UUID="1f5abf5e-b001-4a3d-9c45-27e7fd166685" autoIncrement="false" autoIncrementSequenceName="ar_bill_due_date_seq" defaultValue="" name="appoint_date" nullable="0" physicalName="appoint_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>วันที่ครบกำหนดชำระ = วันที่ลูกค้านัดรับเช็ค
+arbil.appdat -- Update</remarks>
+    </column>
+    <column id="COL36" populated="true" UUID="42fb922a-3504-4a0a-81ae-195de13a1b46" autoIncrement="false" autoIncrementSequenceName="ar_bill_bill_amount_seq" defaultValue="" name="bill_amount" nullable="0" physicalName="bill_amount" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks>ARBIL.NETAMT</remarks>
+    </column>
+    <column id="COL37" populated="true" UUID="e4a98528-08ae-406e-ac57-26ce99ed7297" autoIncrement="false" autoIncrementSequenceName="ar_invoice_receipt_amount_seq" defaultValue="" name="receipt_amount" nullable="0" physicalName="receipt_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks>ยอดชำระ
+SUM(artrn.rcvamt) GROUP BY bilnum</remarks>
+    </column>
+    <column id="COL38" populated="true" UUID="a047cb57-3de5-42c2-ac81-bc88c87cf414" autoIncrement="false" autoIncrementSequenceName="ar_invoice_status_seq" defaultValue="" name="bill_status" nullable="0" physicalName="bill_status" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>สถานะการชำระ
+CASE WHEN receipt_amount = 0 THEN &quot;ยังไม่ชำระ&quot;
+CASE WHEN receipt_amount = bill_amount THEN &quot;ชำระแล้ว&quot;
+CASE WHEN receipt_amount &lt; bill_amount THEN &quot;ชำระแล้วบางส่วน&quot;</remarks>
+    </column>
+    <column id="COL39" populated="true" UUID="2615384e-84d1-4741-be20-debee09839e6" autoIncrement="false" autoIncrementSequenceName="ar_bill_remark_seq" defaultValue="" name="bill_remark" nullable="0" physicalName="bill_remark" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>หมายเหตุใบวางบิล
+ARBIL.REMARK</remarks>
+    </column>
+    <column id="COL40" populated="true" UUID="6ffdc92d-9b5c-4278-a5b1-a71a51141a83" autoIncrement="false" autoIncrementSequenceName="ar_bill_person_in_charge_seq" defaultValue="" name="person_in_charge" nullable="0" physicalName="person_in_charge" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL41" populated="true" UUID="dcffb94b-df16-457b-9136-72605a5b3b70" autoIncrement="false" autoIncrementSequenceName="ar_bill_created_dttm_seq" defaultValue="" name="created_dttm" nullable="0" physicalName="created_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    <column id="COL42" populated="true" UUID="8d79e418-9f42-4c80-8a6e-055372325fcf" autoIncrement="false" autoIncrementSequenceName="ar_bill_updated_dttm_seq" defaultValue="" name="updated_dttm" nullable="0" physicalName="updated_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB273" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB272" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB274" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX43" populated="true" UUID="ae415954-ac7f-44b8-ae1c-86ed62de0ca3" clustered="false" name="ar_bill_pk" physicalName="ar_bill_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC44" populated="true" UUID="ff641072-a8f1-4833-a7f2-a41c6b812227" ascendingOrDescending="UNSPECIFIED" column-ref="COL28" name="bill_no" physicalName="bill_no" />
+     <index-column id="IDC45" populated="true" UUID="a9bce962-a19e-4cf1-92ac-69ef1162930a" ascendingOrDescending="UNSPECIFIED" column-ref="COL29" name="billing_date" physicalName="billing_date" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB46" populated="true" UUID="635a6e1c-efc6-43ca-9abf-b0ff78f8b955" name="ar_receipt" objectType="TABLE" physicalName="ar_receipt" >
+   <remarks>ARRCPIT, ARTRN
+//For Reprot 9</remarks>
+   <folder id="FOLTAB461" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL47" populated="true" UUID="60134ca8-42ea-4328-b6d1-c39406a81e8b" autoIncrement="false" autoIncrementSequenceName="ar_receipt_receipt_no_seq" defaultValue="" name="receipt_no" nullable="0" physicalName="receipt_no" precision="15" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL48" populated="true" UUID="74bf817f-17fc-42a0-81f7-0f1cfae64a14" autoIncrement="false" autoIncrementSequenceName="ar_receipt_invoice_no_seq" defaultValue="" name="invoice_no" nullable="0" physicalName="invoice_no" precision="15" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ARTRN.</remarks>
+    </column>
+    <column id="COL49" populated="true" UUID="07a8f9ed-5bd1-40d8-ad8f-474e40f49af4" autoIncrement="false" autoIncrementSequenceName="ar_receipt_province_seq" defaultValue="" name="province_name" nullable="0" physicalName="province_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ar_customer.province_name</remarks>
+    </column>
+    <column id="COL50" populated="true" UUID="f94d9cf6-af0c-4fb9-bdfc-9f5dc519340c" autoIncrement="false" autoIncrementSequenceName="ar_invoice_customer_code_seq" defaultValue="" name="customer_code" nullable="0" physicalName="customer_code" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ARTRN.CUSCOD</remarks>
+    </column>
+    <column id="COL51" populated="true" UUID="17efafe6-66ba-40eb-a08c-fc4cc8ec4a1d" autoIncrement="false" autoIncrementSequenceName="ar_invoice_customer_name_seq" defaultValue="" name="customer_name" nullable="0" physicalName="customer_name" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ARMAS.CUSNAM</remarks>
+    </column>
+    <column id="COL52" populated="true" UUID="d8f3c067-3646-4747-b0fa-aaa184858a9c" autoIncrement="false" autoIncrementSequenceName="ar_invoice_phone_no_seq" defaultValue="" name="customer_phone_no" nullable="0" physicalName="customer_phone_no" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ARMAS.TELNUM</remarks>
+    </column>
+    <column id="COL53" populated="true" UUID="bb6ca058-e275-4c83-b402-85e098cc71b5" autoIncrement="false" autoIncrementSequenceName="ar_credit_note_salesman_code_seq" defaultValue="" name="salesman_code" nullable="0" physicalName="salesman_code" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>รหัสพนักงานขาย</remarks>
+    </column>
+    <column id="COL54" populated="true" UUID="41c1fc97-b863-4276-a259-df7315f203d8" autoIncrement="false" autoIncrementSequenceName="ar_credit_note_salesman_name_seq" defaultValue="" name="salesman_name" nullable="0" physicalName="salesman_name" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ชื่อพนักงานขาย</remarks>
+    </column>
+    <column id="COL55" populated="true" UUID="4246d083-4688-4f6f-8634-3192f1cd3154" autoIncrement="false" autoIncrementSequenceName="ar_invoice_phone_no_seq" defaultValue="" name="salesman_phone_no" nullable="0" physicalName="salesman_phone_no" precision="50" referenceCount="1" scale="0" source-column-ref="COL8" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>OESLM.TELNUM</remarks>
+    </column>
+    <column id="COL56" populated="true" UUID="5e041e1e-17c4-4143-9d22-25f1b3afdcf4" autoIncrement="false" autoIncrementSequenceName="ar_receipt_receipt_no_seq" defaultValue="" name="bill_no" nullable="0" physicalName="bill_no" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL57" populated="true" UUID="9ed63400-ec51-499c-9326-b8ec110f3c3c" autoIncrement="false" autoIncrementSequenceName="ar_receipt_receipt_date_seq" defaultValue="" name="receipt_date" nullable="0" physicalName="receipt_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>วันที่ออกใบเสร็จ</remarks>
+    </column>
+    <column id="COL58" populated="true" UUID="e56fddfb-e5ac-4373-b45a-c0b5561ea5da" autoIncrement="false" autoIncrementSequenceName="ar_receipt_net_amount_seq" defaultValue="" name="receipt_amount" nullable="0" physicalName="receipt_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks>ยอดที่ต้องชำระ</remarks>
+    </column>
+    <column id="COL59" populated="true" UUID="ae214096-a0cd-4b29-92ce-68ec8a4fb66d" autoIncrement="false" autoIncrementSequenceName="ar_receipt_invoice_date_seq" defaultValue="" name="invoice_date" nullable="0" physicalName="invoice_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL60" populated="true" UUID="3fd2f587-195b-4ef6-81b7-5a81f2e62fb4" autoIncrement="false" autoIncrementSequenceName="ar_receipt_recipt_date_seq" defaultValue="" name="invoice_amount" nullable="0" physicalName="invoice_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks>Report5 -&gt; ยอดเงิน</remarks>
+    </column>
+    <column id="COL61" populated="true" UUID="6f89cbfc-3494-4fd3-bfc3-867c7ab83d92" autoIncrement="false" autoIncrementSequenceName="ar_receipt_invoice_amount_no_vat_seq" defaultValue="" name="invoice_amount_no_vat" nullable="0" physicalName="invoice_amount_no_vat" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks>Report9</remarks>
+    </column>
+    <column id="COL62" populated="true" UUID="3836542c-a955-435a-9c3f-f8e76d39023e" autoIncrement="false" autoIncrementSequenceName="ar_receipt_net_amount_seq" defaultValue="" name="oc_amount" nullable="0" physicalName="oc_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks>OC = Out site commission</remarks>
+    </column>
+    <column id="COL63" populated="true" UUID="8d115a3c-3b8c-46be-8b99-a1db4857ab32" autoIncrement="false" autoIncrementSequenceName="ar_receipt_oc_date_seq" defaultValue="" name="oc_date" nullable="0" physicalName="oc_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL64" populated="true" UUID="5c79200c-2bbb-45a5-9baf-f06e8aa49952" autoIncrement="false" autoIncrementSequenceName="ar_receipt_receipt_status_seq" defaultValue="" name="receipt_status" nullable="0" physicalName="receipt_status" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Formula:
+CASE receipt_amount = 0 THEN ยังไม่ชำระ
+CASE receipt_amount &lt; SUM(invoice_amount) THEN  ชำระแล้วบางส่วน
+CASE receipt_amount = SUM(invoice_amount) THEN ชำระแล้ว</remarks>
+    </column>
+    <column id="COL65" populated="true" UUID="3ae259c0-56f1-4f20-a2a1-fb5013bad51f" autoIncrement="false" autoIncrementSequenceName="ar_receipt_created_dttm_seq" defaultValue="" name="created_dttm" nullable="0" physicalName="created_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    <column id="COL66" populated="true" UUID="efa24d92-960b-4ada-891d-efb9ff1b7869" autoIncrement="false" autoIncrementSequenceName="ar_receipt_updated_dttm_seq" defaultValue="" name="updated_dttm" nullable="0" physicalName="updated_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB463" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB462" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB464" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX67" populated="true" UUID="b44f38c8-24f4-4770-91bc-b4fe7297dbbf" clustered="false" name="ar_receipt_pk" physicalName="ar_receipt_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC68" populated="true" UUID="50209221-4d97-40d5-8794-5afa89f16bed" ascendingOrDescending="UNSPECIFIED" column-ref="COL47" name="receipt_no" physicalName="receipt_no" />
+     <index-column id="IDC69" populated="true" UUID="ed34fac7-78d5-47a3-90af-0b3a55562dc5" ascendingOrDescending="UNSPECIFIED" column-ref="COL48" name="invoice_no" physicalName="invoice_no" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB70" populated="true" UUID="adc978b0-441e-4982-b42d-5487a1738a0d" name="ar_credit_note" objectType="TABLE" physicalName="ar_credit_note" >
+   <remarks>For Report 8</remarks>
+   <folder id="FOLTAB701" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL71" populated="true" UUID="0d6b6147-c34a-463f-89e0-41334f26a3a9" autoIncrement="false" autoIncrementSequenceName="ar_credit_note_cn_no_seq" defaultValue="" name="cn_no" nullable="0" physicalName="cn_no" precision="15" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL72" populated="true" UUID="52e05315-97a1-439a-ac54-1aefcbee7608" autoIncrement="false" autoIncrementSequenceName="ar_credit_note_salesman_code_seq" defaultValue="" name="salesman_code" nullable="0" physicalName="salesman_code" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>รหัสพนักงานขาย</remarks>
+    </column>
+    <column id="COL73" populated="true" UUID="afe34de1-0c87-489a-9deb-3826ce992598" autoIncrement="false" autoIncrementSequenceName="ar_credit_note_salesman_name_seq" defaultValue="" name="salesman_name" nullable="0" physicalName="salesman_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ชื่อพนักงานขาย</remarks>
+    </column>
+    <column id="COL74" populated="true" UUID="628d3027-d7a5-46e6-9a75-560c433451a8" autoIncrement="false" autoIncrementSequenceName="ar_credit_note_invoice_no_seq" defaultValue="" name="invoice_no" nullable="0" physicalName="invoice_no" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL75" populated="true" UUID="7e40334c-1658-4aab-a575-c4daa8a2e4ae" autoIncrement="false" autoIncrementSequenceName="ar_credit_note_invoice_date_seq" defaultValue="" name="invoice_date" nullable="0" physicalName="invoice_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL76" populated="true" UUID="c974e3e4-0186-463b-8082-23e97580cc6f" autoIncrement="false" autoIncrementSequenceName="ar_credit_note_invoice_amount_seq" defaultValue="" name="invoice_amount" nullable="0" physicalName="invoice_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL77" populated="true" UUID="5e8c5676-91c6-4bef-80ad-08418194ff91" autoIncrement="false" autoIncrementSequenceName="ar_credit_note_change_date_seq" defaultValue="" name="change_date" nullable="0" physicalName="change_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL78" populated="true" UUID="00f3951a-d50d-444d-8072-b3c004f440fc" autoIncrement="false" autoIncrementSequenceName="ar_credit_note_cn_date_seq" defaultValue="" name="cn_date" nullable="0" physicalName="cn_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL79" populated="true" UUID="e5d3efb3-6c41-43f1-a46b-e3783970c0b7" autoIncrement="false" autoIncrementSequenceName="ar_credit_note_cn_amount_seq" defaultValue="" name="cn_amount" nullable="0" physicalName="cn_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks>จำนวนเงินส่วนลด</remarks>
+    </column>
+    <column id="COL80" populated="true" UUID="00a2dcd1-34c5-473e-85b7-c97273a4b072" autoIncrement="false" autoIncrementSequenceName="ar_credit_note_remark_seq" defaultValue="" name="cn_remark" nullable="0" physicalName="cn_remark" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>หมายเหตุ Credit Note</remarks>
+    </column>
+    <column id="COL81" populated="true" UUID="2990d4d4-569c-404d-9c56-b9f7c1386c7b" autoIncrement="false" autoIncrementSequenceName="ar_credit_note_created_dttm_seq" defaultValue="" name="created_dttm" nullable="0" physicalName="created_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    <column id="COL82" populated="true" UUID="2c17cc68-5261-4f42-935b-6d2e2c0ee54d" autoIncrement="false" autoIncrementSequenceName="ar_credit_note_updated_dttm_seq" defaultValue="" name="updated_dttm" nullable="0" physicalName="updated_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB703" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB702" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB704" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX83" populated="true" UUID="fefc78db-a3ce-4868-afce-62c480122606" clustered="false" name="ar_credit_note_pk" physicalName="ar_credit_note_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC84" populated="true" UUID="650f147b-5e7c-49a1-b7b0-3d8e63b2c88e" ascendingOrDescending="UNSPECIFIED" column-ref="COL71" name="cn_no" physicalName="cn_no" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB85" populated="true" UUID="ece903f1-fe84-4b79-9902-108aab337edd" name="ar_so_to_commission" objectType="TABLE" physicalName="ar_so_to_commission" >
+   <remarks>For Reprot 10</remarks>
+   <folder id="FOLTAB851" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL86" populated="true" UUID="5bb91042-e190-45b2-908d-cefc08ba0d81" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_New Column_seq" defaultValue="" name="so_no" nullable="0" physicalName="so_no" precision="15" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL87" populated="true" UUID="c1588d9d-89d1-4dbf-9460-6fd559a0d88e" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_invoice_no_seq" defaultValue="" name="invoice_no" nullable="0" physicalName="invoice_no" precision="15" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL88" populated="true" UUID="fc447740-7064-44d1-a4c8-917a46d415b9" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_bill_no_seq" defaultValue="" name="bill_no" nullable="0" physicalName="bill_no" precision="15" primaryKeySeq="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL89" populated="true" UUID="28a3d5fc-125f-46c7-9d20-c818de1376a6" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_receipt_no_seq" defaultValue="" name="receipt_no" nullable="0" physicalName="receipt_no" precision="15" primaryKeySeq="3" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL90" populated="true" UUID="b40d446a-434f-429f-96f0-62a73c8e6386" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_customer_code_seq" defaultValue="" name="customer_code" nullable="0" physicalName="customer_code" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL91" populated="true" UUID="fbdcc4ce-6ba2-42ba-9b34-3e3162abdce0" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_customer_name_seq" defaultValue="" name="customer_name" nullable="0" physicalName="customer_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL92" populated="true" UUID="514ba652-8f81-4d71-9976-61c4a03fcc3d" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_so_date_seq" defaultValue="" name="so_date" nullable="0" physicalName="so_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL93" populated="true" UUID="9218aa96-5e06-437d-9c2b-1bfcba0da2da" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_invoice_date_seq" defaultValue="" name="invoice_date" nullable="0" physicalName="invoice_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL94" populated="true" UUID="80cebaac-b4dd-420a-ab2c-552dfc1bec0e" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_bill_date_seq" defaultValue="" name="bill_date" nullable="0" physicalName="bill_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL95" populated="true" UUID="0b07f37d-bc98-4b36-8693-fc0b086da019" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_receipt_date_seq" defaultValue="" name="receipt_date" nullable="0" physicalName="receipt_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL96" populated="true" UUID="4956f727-f4c5-4daa-a621-c804368c3c84" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_so_amount_seq" defaultValue="" name="so_amount" nullable="0" physicalName="so_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL97" populated="true" UUID="20879784-fc27-4efd-9dda-3347265db4ef" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_invoice_amount_no_vat_seq" defaultValue="" name="invoice_amount_no_vat" nullable="0" physicalName="invoice_amount_no_vat" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL98" populated="true" UUID="1e41ce59-9e1e-4789-9190-075cef967964" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_invoice_amount_seq" defaultValue="" name="invoice_amount" nullable="0" physicalName="invoice_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL99" populated="true" UUID="8fee8e58-034c-4352-bd35-d3547ebc8233" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_cheque_date_seq" defaultValue="" name="appoint_date" nullable="0" physicalName="appoint_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>วันที่นัดรับเช็ค
+arbil.appdat</remarks>
+    </column>
+    <column id="COL100" populated="true" UUID="f780a395-bf6e-4e15-be83-e5a2f9ad7d93" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_bill_amount_seq" defaultValue="" name="bill_amount" nullable="0" physicalName="bill_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL101" populated="true" UUID="bc5dcb89-4258-4f3a-8b30-bf345c2eb99e" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_sr_amount_seq" defaultValue="" name="cn_amount" nullable="0" physicalName="cn_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks>จำนวนเงิน ใบลดหนี้</remarks>
+    </column>
+    <column id="COL102" populated="true" UUID="a7f4f1b7-91ad-495a-9519-e80596283e47" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_cheque_date_seq" defaultValue="" name="cheque_date" nullable="0" physicalName="cheque_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>วันที่เช็ค</remarks>
+    </column>
+    <column id="COL103" populated="true" UUID="e80cfb69-df62-4e61-ba19-fcbced7bcbbe" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_cheque_no_seq" defaultValue="" name="cheque_no" nullable="0" physicalName="cheque_no" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>เลขที่เช็ค</remarks>
+    </column>
+    <column id="COL104" populated="true" UUID="767a0fde-9196-4339-b516-23512fef09b8" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_cheque_amount_seq" defaultValue="" name="cheque_amount" nullable="0" physicalName="cheque_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL105" populated="true" UUID="9d79fb8e-b4b5-4093-b77e-0e69c8edd204" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_commission_amount_seq" defaultValue="" name="commission_amount" nullable="0" physicalName="commission_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL106" populated="true" UUID="7c202d8a-5f8d-4f32-bd05-1328464863eb" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_status_seq" defaultValue="" name="commission_status" nullable="0" physicalName="commission_status" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>สถานะ Commission</remarks>
+    </column>
+    <column id="COL107" populated="true" UUID="9b88ee16-ee44-42a9-9365-e08dce1427be" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_oc_amount_seq" defaultValue="" name="oc_amount" nullable="0" physicalName="oc_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL108" populated="true" UUID="7ca87f9d-51ec-45a1-af8e-80f2a26dac4f" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_status_oc_seq" defaultValue="" name="oc_status" nullable="0" physicalName="oc_status" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>สถานะ Out-Site</remarks>
+    </column>
+    <column id="COL109" populated="true" UUID="0f98bd04-f599-4f0c-a420-89bac5056c71" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_salesman_code_seq" defaultValue="" name="salesman_code" nullable="0" physicalName="salesman_code" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL110" populated="true" UUID="1638c6e2-b9e7-4b81-9663-58fe64dd7bf0" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_salesman_name_seq" defaultValue="" name="salesman_name" nullable="0" physicalName="salesman_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL111" populated="true" UUID="3e6956ee-5c4b-4253-b77d-98cba7a889a5" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_aging_seq" defaultValue="" name="aging" nullable="0" physicalName="aging" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Aging ชำระหนี้</remarks>
+    </column>
+    <column id="COL112" populated="true" UUID="2ae949bf-4385-4509-a971-06fb517425b0" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_overdue_aging_seq" defaultValue="" name="overdue_aging" nullable="0" physicalName="overdue_aging" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Aging คงค้าง</remarks>
+    </column>
+    <column id="COL113" populated="true" UUID="b47e9f36-53de-4611-b38e-15eda9b420f1" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_credit_term_seq" defaultValue="" name="credit_term" nullable="0" physicalName="credit_term" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL114" populated="true" UUID="f7aff439-3e1a-4848-a2b1-c0dbd1b06e6e" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_created_dttm_seq" defaultValue="" name="created_dttm" nullable="0" physicalName="created_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    <column id="COL115" populated="true" UUID="0638cafb-422e-492f-9b19-6ca4a1f03c33" autoIncrement="false" autoIncrementSequenceName="ar_so_to_commission_updated_dttm_seq" defaultValue="" name="updated_dttm" nullable="0" physicalName="updated_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB853" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB852" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB854" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX116" populated="true" UUID="14543120-c5ca-47d6-958c-4ffd77cf5810" clustered="false" name="ar_so_to_commission_pk" physicalName="ar_so_to_commission_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC117" populated="true" UUID="7883cc8f-e25f-44e1-9f0c-b0d9062a1d42" ascendingOrDescending="UNSPECIFIED" column-ref="COL86" name="so_no" physicalName="so_no" />
+     <index-column id="IDC118" populated="true" UUID="879845a9-f271-46cf-8d31-e3e86ee75725" ascendingOrDescending="UNSPECIFIED" column-ref="COL87" name="invoice_no" physicalName="invoice_no" />
+     <index-column id="IDC119" populated="true" UUID="795f9712-bcf4-4121-ad7b-1d17b5bd900a" ascendingOrDescending="UNSPECIFIED" column-ref="COL88" name="bill_no" physicalName="bill_no" />
+     <index-column id="IDC120" populated="true" UUID="308a5564-70ae-446f-a225-1f275effd696" ascendingOrDescending="UNSPECIFIED" column-ref="COL89" name="receipt_no" physicalName="receipt_no" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB121" populated="true" UUID="2618fe9c-4066-48e3-b8a7-200ad8477387" name="ar_customer" objectType="TABLE" physicalName="ar_customer" >
+   <remarks>FOR Data Entry Form</remarks>
+   <folder id="FOLTAB1211" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL122" populated="true" UUID="09957d16-46c2-439e-8325-25ada96e0be0" autoIncrement="false" autoIncrementSequenceName="province_province_id_seq" defaultValue="" name="customer_code" nullable="0" physicalName="customer_code" precision="15" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL123" populated="true" UUID="330295b7-cd40-492f-86ca-65ce2189984f" autoIncrement="false" autoIncrementSequenceName="ar_master_province_name_seq" defaultValue="" name="customer_name" nullable="0" physicalName="customer_name" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL124" populated="true" UUID="89523a5e-63f4-40e4-af36-e0327c4a037c" autoIncrement="false" autoIncrementSequenceName="ar_master_area_seq" defaultValue="" name="province_name" nullable="1" physicalName="province_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>พื้นที่: กรุงเทพฯ, ต่างจังหวัด</remarks>
+    </column>
+    <column id="COL125" populated="true" UUID="a349f602-1fa6-4b5d-93f7-d79d5f29074c" autoIncrement="false" autoIncrementSequenceName="ar_customer_district_code_seq" defaultValue="" name="district_code" nullable="1" physicalName="district_code" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL126" populated="true" UUID="1bfd10a4-107c-4e87-81a7-7a9ecc0a26fd" autoIncrement="false" autoIncrementSequenceName="ar_customer_district_name_seq" defaultValue="" name="district_name" nullable="1" physicalName="district_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL127" populated="true" UUID="9f19ed8e-e0fb-4a1c-b2c2-e413bc384567" autoIncrement="false" autoIncrementSequenceName="ar_customer_phone_no_seq" defaultValue="" name="phone_no" nullable="1" physicalName="phone_no" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>เบอร์โทรศัพท์</remarks>
+    </column>
+    <column id="COL128" populated="true" UUID="be2b764f-6c51-4a71-8319-5a7a8082626b" autoIncrement="false" autoIncrementSequenceName="ar_master_flag_receipt_seq" defaultValue="" name="include_receipt_flag" nullable="1" physicalName="include_receipt_flag" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+     <remarks>การวางบิลพร้อมใบเสร็จ
+Y -&gt; ต้องวาง พร้อมใบเสร็จ
+N -&gt; ไม่ต้องวาง พร้อมใบเสร็จ</remarks>
+    </column>
+    <column id="COL129" populated="true" UUID="37ba70e8-421b-4c87-8398-210c416430ef" autoIncrement="false" autoIncrementSequenceName="province_shift_due_date_seq" defaultValue="" name="shift_bill_date_flag" nullable="1" physicalName="shift_bill_date_flag" precision="25" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>หากตรงกับวันหยุดจะเลื่อน
+next_business day -&gt; เลื่อนออกเป็นวันทำการถัดไป
+previous business day -&gt; เลื่อนให้เร็วขึ้น 1 วัน</remarks>
+    </column>
+    <column id="COL130" populated="true" UUID="ebdf14d5-7a7e-4937-a4eb-fe68c7a82669" autoIncrement="false" autoIncrementSequenceName="ar_customer_created_dttm_seq" defaultValue="" name="created_dttm" nullable="0" physicalName="created_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    <column id="COL131" populated="true" UUID="0f1838ca-8365-4cb9-b42b-c9bf21e5d8d7" autoIncrement="false" autoIncrementSequenceName="ar_customer_updated_dttm_seq" defaultValue="" name="updated_dttm" nullable="0" physicalName="updated_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1213" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1212" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1214" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX132" populated="true" UUID="5ce54548-2f58-4ff1-b613-739128727bc1" clustered="false" name="ar_customer_pk" physicalName="ar_customer_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC133" populated="true" UUID="d59bf416-b440-4fac-90a3-7026c28afc77" ascendingOrDescending="UNSPECIFIED" column-ref="COL122" name="customer_code" physicalName="customer_code" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB134" populated="true" UUID="e6be01eb-b965-46de-9893-edd4099f1ad5" name="ar_billing_schedule" objectType="TABLE" physicalName="ar_billing_schedule" >
+   <remarks>เก็บข้อมูลการวางบิล</remarks>
+   <folder id="FOLTAB1341" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL135" populated="true" UUID="cf6eaf53-91d5-44df-937e-50b3058a5e90" autoIncrement="false" autoIncrementSequenceName="province_province_id_seq" defaultValue="" name="customer_code" nullable="0" physicalName="customer_code" precision="15" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL136" populated="true" UUID="aeab5e46-66db-4b43-9c71-cb23986f12ce" autoIncrement="false" autoIncrementSequenceName="ar_billing_schedule_schedule_seq" defaultValue="" name="schedule" nullable="0" physicalName="schedule" precision="20" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>เก็บค่าใดค่าหนึ่งระหว่างทุกๆ วันที่ เช่น 1, 2, 4
+กับทุกวัน เช่น ทุกจันทร์ -&gt; Mon, จันทร์W1 -&gt; MonW1, ทุกวัน -&gt; All</remarks>
+    </column>
+    <column id="COL137" populated="true" UUID="9f215859-13e4-4da1-9a93-7fa9035d84a0" autoIncrement="false" autoIncrementSequenceName="ar_billing_schedule_type_seq" defaultValue="" name="type" nullable="0" physicalName="type" precision="5" primaryKeySeq="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>day -&gt; เมื่อเลือกทุกๆวันที่
+week -&gt; เมื่อเลือกทุกวัน...</remarks>
+    </column>
+    <column id="COL138" populated="true" UUID="0e126126-c471-4c06-b1a1-6c2a60b0b07c" autoIncrement="false" autoIncrementSequenceName="ar_billing_schedule_time_from_seq" defaultValue="" name="time_from" nullable="0" physicalName="time_from" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="92" userDefinedTypeUUID="10d6960f-169d-47c2-860a-37341342b1d5" >
+     <remarks>ระหว่างเวลาจาก เช่น 08.30</remarks>
+    </column>
+    <column id="COL139" populated="true" UUID="9ba2c0d6-b9c2-44d5-af42-ab92dd5297b1" autoIncrement="false" autoIncrementSequenceName="ar_billing_schedule_time_to_seq" defaultValue="" name="time_to" nullable="0" physicalName="time_to" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="92" userDefinedTypeUUID="10d6960f-169d-47c2-860a-37341342b1d5" >
+     <remarks>ระหว่างเวลาถึง เช่น 12.00</remarks>
+    </column>
+    <column id="COL140" populated="true" UUID="2f9af2b9-0a6f-45c2-b361-9ef63f15409e" autoIncrement="false" autoIncrementSequenceName="ar_billing_schedule_created_dttm_seq" defaultValue="" name="created_dttm" nullable="0" physicalName="created_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    <column id="COL141" populated="true" UUID="d7d6ef6c-1040-4337-bed8-bcd1ea24656e" autoIncrement="false" autoIncrementSequenceName="ar_billing_schedule_updated_dttm_seq" defaultValue="" name="updated_dttm" nullable="0" physicalName="updated_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1343" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1342" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1344" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX142" populated="true" UUID="5d9e80be-4344-4bc3-9fbb-c7a5f75652c9" clustered="false" name="ar_billing_schedule_pk" physicalName="ar_billing_schedule_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC143" populated="true" UUID="a16dd786-42ce-462a-af9c-67048be93d85" ascendingOrDescending="UNSPECIFIED" column-ref="COL135" name="customer_code" physicalName="customer_code" />
+     <index-column id="IDC144" populated="true" UUID="25af35c4-45d6-4914-aad7-44f852335b57" ascendingOrDescending="UNSPECIFIED" column-ref="COL136" name="schedule" physicalName="schedule" />
+     <index-column id="IDC145" populated="true" UUID="ba4ee514-f215-4af1-af1e-53b0b2efe7f1" ascendingOrDescending="UNSPECIFIED" column-ref="COL137" name="type" physicalName="type" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB146" populated="true" UUID="4c864db0-5cd3-4c8f-af8b-73a49b1970cc" name="ar_payment_schedule" objectType="TABLE" physicalName="ar_payment_schedule" >
+   <remarks>เก็บข้อมูลการรับเช็ค/เงินสด</remarks>
+   <folder id="FOLTAB1461" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL147" populated="true" UUID="ef4f38ed-2d56-49ee-bb6e-8655fb8ba61f" autoIncrement="false" autoIncrementSequenceName="province_province_id_seq" defaultValue="" name="customer_code" nullable="0" physicalName="customer_code" precision="15" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL148" populated="true" UUID="b7734c5a-d510-45d2-aa8f-5219edf9e93c" autoIncrement="false" autoIncrementSequenceName="ar_master_weekly_weekly_seq" defaultValue="" name="schedule" nullable="0" physicalName="schedule" precision="20" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>เก็บค่าใดค่าหนึ่งระหว่างทุกๆ วันที่ เช่น 1, 2, 4
+กับทุกวัน เช่น ทุกจันทร์ -&gt; Mon, จันทร์W1 -&gt; MonW1, ทุกวัน -&gt; All</remarks>
+    </column>
+    <column id="COL149" populated="true" UUID="18f7560d-f247-4021-9088-8faf9dec077e" autoIncrement="false" autoIncrementSequenceName="ar_payment_schedule_type_seq" defaultValue="" name="type" nullable="0" physicalName="type" precision="5" primaryKeySeq="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>day -&gt; เมื่อเลือกทุกๆวันที่
+week -&gt; เมื่อเลือกทุกวัน...</remarks>
+    </column>
+    <column id="COL150" populated="true" UUID="0ffdd16e-6392-44c2-86f3-bb27b4e9d009" autoIncrement="false" autoIncrementSequenceName="ar_payment_schedule_time_from_seq" defaultValue="" name="time_from" nullable="0" physicalName="time_from" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="92" userDefinedTypeUUID="10d6960f-169d-47c2-860a-37341342b1d5" >
+     <remarks>ระหว่างเวลาจาก เช่น 08.30</remarks>
+    </column>
+    <column id="COL151" populated="true" UUID="61dbe7eb-a6ad-4ae1-9dfa-78404129fda2" autoIncrement="false" autoIncrementSequenceName="ar_payment_schedule_time_to_seq" defaultValue="" name="time_to" nullable="0" physicalName="time_to" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="92" userDefinedTypeUUID="10d6960f-169d-47c2-860a-37341342b1d5" >
+     <remarks>ระหว่างเวลาถึง เช่น 12.00</remarks>
+    </column>
+    <column id="COL152" populated="true" UUID="0a95103f-d1fe-4332-80fa-cc51b038dd2b" autoIncrement="false" autoIncrementSequenceName="ar_payment_schedule_created_dttm_seq" defaultValue="" name="created_dttm" nullable="0" physicalName="created_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    <column id="COL153" populated="true" UUID="28e41514-005a-4b91-ab9d-d9272f2024e2" autoIncrement="false" autoIncrementSequenceName="ar_payment_schedule_updated_dttm_seq" defaultValue="" name="updated_dttm" nullable="0" physicalName="updated_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1463" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1462" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1464" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX154" populated="true" UUID="cb2657f3-5202-481e-9347-a6e6541cbdb8" clustered="false" name="ar_payment_schedule_pk" physicalName="ar_payment_schedule_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC155" populated="true" UUID="d9921b11-13fe-4a8f-9901-8ffc0f9a54cd" ascendingOrDescending="UNSPECIFIED" column-ref="COL147" name="customer_code" physicalName="customer_code" />
+     <index-column id="IDC156" populated="true" UUID="c98eb967-034d-43cf-a3ca-b2b6c4046bb3" ascendingOrDescending="UNSPECIFIED" column-ref="COL148" name="schedule" physicalName="schedule" />
+     <index-column id="IDC157" populated="true" UUID="ea59dace-04fa-4c7a-b1c6-daf7d013dbeb" ascendingOrDescending="UNSPECIFIED" column-ref="COL149" name="type" physicalName="type" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB158" populated="true" UUID="319c106f-da8f-43aa-b390-614e65af223a" name="district" objectType="TABLE" physicalName="district" >
+   <remarks>สำหรับให้หน้าจอมาดึงข้อมูลไปแสดง เพื่อให้ User เลือก จากนั้นจึงนำค่าเหล่านี้ไปเก็บที่ ar_customer อีกที</remarks>
+   <folder id="FOLTAB1581" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL159" populated="true" UUID="01f42a09-3a83-4239-9372-1f7ff68fcdc8" autoIncrement="true" autoIncrementSequenceName="district_dictinct_key_seq" defaultValue="" name="district_code" nullable="0" physicalName="district_code" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Running Number</remarks>
+    </column>
+    <column id="COL160" populated="true" UUID="080fce46-e1e5-4407-b6a0-1d4301781472" autoIncrement="false" autoIncrementSequenceName="district_province_name_seq" defaultValue="" name="province_name" nullable="0" physicalName="province_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>กรุงเทพ,ต่างจังหวัด</remarks>
+    </column>
+    <column id="COL161" populated="true" UUID="facafd25-cc5e-4135-9216-9169870a2d49" autoIncrement="false" autoIncrementSequenceName="district_distinct_name_seq" defaultValue="" name="district_name" nullable="0" physicalName="district_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ชื่อเขต</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1583" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1582" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1584" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX162" populated="true" UUID="268acfc7-0bb2-4034-9b85-ab770a8c8972" clustered="false" name="district_pk" physicalName="district_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC163" populated="true" UUID="33bfb630-5145-4c5e-8621-5da8f70ad373" ascendingOrDescending="UNSPECIFIED" column-ref="COL159" name="district_code" physicalName="district_code" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB164" populated="true" UUID="e7aa2632-d699-42f0-9596-ef5306d1597f" name="ar_ratio_monthly" objectType="TABLE" physicalName="ar_ratio_monthly" >
+   <remarks>สัดส่วนลูกหนี้ต่อยอดขาย	(value1,value2)
+สัดส่วนหนี้เสียต่อยอดขาย (value1,value2)	
+สัดส่วนหนี้เสียต่อยอดหนี้ (value1,value2)
+ยอดหนี้ยังไม่ถึงกำหนดเทียบยอดหนี้เกินกำหนด (value1,value2)
+สัดส่วนหนี้ตามประเภทหนี้
+   -ปกติ(1-60) value1 -&gt; Invoice_date
+   -เฝ้าระวัง(61-90) value2
+   -ความเสี่ยงสูง(91+) value3
+   -สงสัยจะสูญ value4
+AR Turnover (value1,value2)
+Collection Period (value1,value2)</remarks>
+   <folder id="FOLTAB1641" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL165" populated="true" UUID="5145b56a-228c-4c23-aed9-fdb9122a72ad" autoIncrement="false" autoIncrementSequenceName="ar_ratio_monthly_ratio_id_seq" defaultValue="" name="ratio_id" nullable="0" physicalName="ratio_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL166" populated="true" UUID="0939b3ba-1e30-440c-9dd7-f80e46a8383b" autoIncrement="false" autoIncrementSequenceName="ar_ratio_monthly_ratio_year_seq" defaultValue="" name="ratio_year" nullable="0" physicalName="ratio_year" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL167" populated="true" UUID="e6a0675a-86b3-4eae-8b53-94e821d1e0f5" autoIncrement="false" autoIncrementSequenceName="ar_ratio_monthly_ratio_month_seq" defaultValue="" name="ratio_month" nullable="0" physicalName="ratio_month" precision="0" primaryKeySeq="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL168" populated="true" UUID="640aaab8-f59f-4bc2-a344-974322d9ff28" autoIncrement="false" autoIncrementSequenceName="ar_ratio_monthly_ratio_month_name_seq" defaultValue="" name="ratio_month_name" nullable="0" physicalName="ratio_month_name" precision="3" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL169" populated="true" UUID="d12d86ae-b7d5-484b-a428-51443fde29a7" autoIncrement="false" autoIncrementSequenceName="ar_ratio_monthly_ratio_name_seq" defaultValue="" name="ratio_name" nullable="0" physicalName="ratio_name" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL170" populated="true" UUID="e136f1b4-fa4d-4a67-a215-84af5eb9852a" autoIncrement="false" autoIncrementSequenceName="ar_ratio_monthly_ratio_value1_seq" defaultValue="" name="ratio_value1" nullable="0" physicalName="ratio_value1" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL171" populated="true" UUID="b748716d-19fd-42c6-b777-6d3ed1eeb332" autoIncrement="false" autoIncrementSequenceName="ar_ratio_monthly_ratio_value2_seq" defaultValue="" name="ratio_value2" nullable="0" physicalName="ratio_value2" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL172" populated="true" UUID="eee2f902-8efc-4e01-83b4-a2ae2a3685c7" autoIncrement="false" autoIncrementSequenceName="ar_ratio_monthly_ratio_value3_seq" defaultValue="" name="ratio_value3" nullable="0" physicalName="ratio_value3" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL173" populated="true" UUID="43de5f10-fd58-46cf-958f-654f9189c7f6" autoIncrement="false" autoIncrementSequenceName="ar_ratio_monthly_ratio_value4_seq" defaultValue="" name="ratio_value4" nullable="0" physicalName="ratio_value4" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL174" populated="true" UUID="c5fed6ef-1837-4ccd-8e18-1a7283de7fdd" autoIncrement="false" autoIncrementSequenceName="ar_ratio_monthly_created_dttm_seq" defaultValue="" name="created_dttm" nullable="0" physicalName="created_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    <column id="COL175" populated="true" UUID="b84a90bc-0978-4d1c-ac79-4c4fd10a9e11" autoIncrement="false" autoIncrementSequenceName="ar_ratio_monthly_updated_dttm_seq" defaultValue="" name="updated_dttm" nullable="0" physicalName="updated_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1643" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1642" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1644" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX176" populated="true" UUID="82749133-d7cd-46eb-9168-1b27f7b4df03" clustered="false" name="ar_ratio_monthly_pk" physicalName="ar_ratio_monthly_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC177" populated="true" UUID="5533539f-965d-402e-bbd6-3998a1724d3d" ascendingOrDescending="UNSPECIFIED" column-ref="COL165" name="ratio_id" physicalName="ratio_id" />
+     <index-column id="IDC178" populated="true" UUID="d38fab1a-63ec-456e-9c7b-c717b9a58add" ascendingOrDescending="UNSPECIFIED" column-ref="COL166" name="ratio_year" physicalName="ratio_year" />
+     <index-column id="IDC179" populated="true" UUID="5b805b19-f474-437d-a343-25a4ab2442a6" ascendingOrDescending="UNSPECIFIED" column-ref="COL167" name="ratio_month" physicalName="ratio_month" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB180" populated="true" UUID="521b3295-d93c-4f7a-86e0-ae54865085ed" name="ar_ratio_yearly" objectType="TABLE" physicalName="ar_ratio_yearly" >
+   <remarks>AR Turnover
+Collection Period</remarks>
+   <folder id="FOLTAB1801" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL181" populated="true" UUID="f2bfa294-475a-4cc3-9f7d-35a7f59dd2a5" autoIncrement="false" autoIncrementSequenceName="ar_ratio_yearly_ratio_id_seq" defaultValue="" name="ratio_id" nullable="0" physicalName="ratio_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL182" populated="true" UUID="9e794119-14eb-4a1e-8221-8d589d80191e" autoIncrement="false" autoIncrementSequenceName="ar_ratio_yearly_ratio_year_seq" defaultValue="" name="ratio_year" nullable="0" physicalName="ratio_year" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL183" populated="true" UUID="8934258d-c698-4cfe-83b2-6ff1690afa88" autoIncrement="false" autoIncrementSequenceName="ar_ratio_yearly_ratio_name_seq" defaultValue="" name="ratio_name" nullable="0" physicalName="ratio_name" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL184" populated="true" UUID="5b4004bc-cab7-4e5e-89fb-44dc5ce196c3" autoIncrement="false" autoIncrementSequenceName="ar_ratio_yearly_ratio_value1_seq" defaultValue="" name="ratio_value1" nullable="0" physicalName="ratio_value1" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL185" populated="true" UUID="71649a3d-0c54-4b2c-8aa1-e74a9e9414c4" autoIncrement="false" autoIncrementSequenceName="ar_ratio_yearly_ratio_value2_seq" defaultValue="" name="ratio_value2" nullable="0" physicalName="ratio_value2" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL186" populated="true" UUID="498a93cf-379f-4d54-8c66-2df7c61628cc" autoIncrement="false" autoIncrementSequenceName="ar_ratio_yearly_created_dttm_seq" defaultValue="" name="created_dttm" nullable="0" physicalName="created_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    <column id="COL187" populated="true" UUID="b251167a-2915-4c0c-815a-1d4c91916349" autoIncrement="false" autoIncrementSequenceName="ar_ratio_yearly_updated_dttm_seq" defaultValue="" name="updated_dttm" nullable="0" physicalName="updated_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1803" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1802" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1804" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX188" populated="true" UUID="b697ce89-e404-4f7b-b4d4-6aba5f1d229d" clustered="false" name="ar_ratio_yearly_pk" physicalName="ar_ratio_monthly_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC189" populated="true" UUID="5348030a-1a4d-4df9-b991-9aecd70d829a" ascendingOrDescending="UNSPECIFIED" column-ref="COL181" name="ratio_id" physicalName="ratio_id" />
+     <index-column id="IDC190" populated="true" UUID="3edc2f4a-363d-4c22-a79f-29d89002759d" ascendingOrDescending="UNSPECIFIED" column-ref="COL182" name="ratio_year" physicalName="ratio_year" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB191" populated="true" UUID="8f5d84d3-8a29-437e-a017-94d8bb981364" name="ar_invoice_snapshot" objectType="TABLE" physicalName="ar_invoice_snapshot" >
+   <remarks></remarks>
+   <folder id="FOLTAB1911" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL192" populated="true" UUID="282d1e1c-d44d-4ed8-9619-869a9fc3a781" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_invoice_no_seq" defaultValue="" name="invoice_no" nullable="0" physicalName="invoice_no" precision="15" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL193" populated="true" UUID="6d30a3a9-d764-46ca-97cb-340eea7d7b1d" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_snapshot_year_seq" defaultValue="" name="snapshot_year" nullable="0" physicalName="snapshot_year" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL194" populated="true" UUID="e2e25950-1b5f-4b16-83d5-08e9f7dd80a1" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_snapshot_month_seq" defaultValue="" name="snapshot_month" nullable="0" physicalName="snapshot_month" precision="0" primaryKeySeq="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL195" populated="true" UUID="586acb88-02b1-4dda-8517-3224ed6c2250" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_customer_code_seq" defaultValue="" name="customer_code" nullable="0" physicalName="customer_code" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL196" populated="true" UUID="b6fc965d-dd75-4d62-abbb-77252928d4d7" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_customer_name_seq" defaultValue="" name="customer_name" nullable="0" physicalName="customer_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL197" populated="true" UUID="9a9b9cc6-3ec6-4eb6-a999-9221a1d6e642" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_credit_term_seq" defaultValue="" name="credit_term" nullable="0" physicalName="credit_term" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL198" populated="true" UUID="db1e56c2-8dfc-4baf-9a40-34f149a930e6" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_bill_remark_seq" defaultValue="" name="bill_remark" nullable="0" physicalName="bill_remark" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL199" populated="true" UUID="d0ccc40a-e28f-4b1b-8ac8-3f1da1e1203b" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_debt_type_seq" defaultValue="" name="debt_type" nullable="0" physicalName="debt_type" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ปกติ(1-60)
+เผ้าระวัง(61-90)
+ความเสี่ยงสูง(91+)
+สงสัยจะสูญ</remarks>
+    </column>
+    <column id="COL200" populated="true" UUID="174b2bef-ee54-47ca-b3b0-50d37e642964" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_salesman_code_seq" defaultValue="" name="salesman_code" nullable="0" physicalName="salesman_code" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL201" populated="true" UUID="7ff8ea2a-0dcf-4f7f-a6a6-0c28b8d01c08" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_salesman_name_seq" defaultValue="" name="salesman_name" nullable="0" physicalName="salesman_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL202" populated="true" UUID="39b7e731-a7ea-4aa9-9b60-4c765bd0b9a1" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_invoice_date_seq" defaultValue="" name="invoice_date" nullable="0" physicalName="invoice_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL203" populated="true" UUID="1517bbbb-54ec-4194-8541-28eb5a44a961" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_due_date_seq" defaultValue="" name="due_date" nullable="0" physicalName="due_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL204" populated="true" UUID="dd0d8ea8-16e7-45f4-ad73-996752f1fe2c" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_appoint_date_seq" defaultValue="" name="appoint_date" nullable="0" physicalName="appoint_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL205" populated="true" UUID="0deb51f8-cd28-47be-9f60-21e05fd74f22" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_invoice_amount_seq" defaultValue="" name="invoice_amount" nullable="0" physicalName="invoice_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL206" populated="true" UUID="5686c52b-c879-46d8-8178-941823373df0" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_receipt_amount_seq" defaultValue="" name="receipt_amount" nullable="0" physicalName="receipt_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL207" populated="true" UUID="8ffaab56-4aa2-46ab-99d3-40ad42a67f14" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_invoice_aging_seq" defaultValue="" name="aging_by_invoice_date" nullable="0" physicalName="aging_by_invoice_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>จำนวนวัน aging คิดตาม invoice_date</remarks>
+    </column>
+    <column id="COL208" populated="true" UUID="31e9f04b-81e7-4af1-b58b-1ad80f37ed4c" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_aging_by_due_date_seq" defaultValue="" name="aging_by_due_date" nullable="0" physicalName="aging_by_due_date" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>จำนวนวัน aging คิดตาม due_date</remarks>
+    </column>
+    <column id="COL209" populated="true" UUID="1e4af98d-b871-4f46-b9c9-5c4f20862082" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_created_dttm_seq" defaultValue="" name="created_dttm" nullable="0" physicalName="created_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    <column id="COL210" populated="true" UUID="eaddfaec-f3a6-404e-8ad6-66dca91b89bb" autoIncrement="false" autoIncrementSequenceName="ar_invoice_snapshot_updated_dttm_seq" defaultValue="" name="updated_dttm" nullable="0" physicalName="updated_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1913" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1912" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1914" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX211" populated="true" UUID="a602ebbe-779f-4420-a767-9ebf415a0687" clustered="false" name="ar_invoice_snapshot_pk" physicalName="ar_aging_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC212" populated="true" UUID="2c3611db-6f56-431a-bdf4-49d60787eeef" ascendingOrDescending="UNSPECIFIED" column-ref="COL192" name="invoice_no" physicalName="invoice_no" />
+     <index-column id="IDC213" populated="true" UUID="abb914af-7399-4a41-8bde-d5bbccc19894" ascendingOrDescending="UNSPECIFIED" column-ref="COL193" name="snapshot_year" physicalName="snapshot_year" />
+     <index-column id="IDC214" populated="true" UUID="0cb07e6a-ac96-4523-93cf-804b4fdfb9e6" ascendingOrDescending="UNSPECIFIED" column-ref="COL194" name="snapshot_month" physicalName="snapshot_month" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB215" populated="true" UUID="02696486-bf6d-4c8d-87db-ecb32c6c8b96" name="ar_snapshot" objectType="TABLE" physicalName="ar_snapshot" >
+   <remarks></remarks>
+   <folder id="FOLTAB2151" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL216" populated="true" UUID="273c9294-5345-4c7c-860d-d29160c07eb7" autoIncrement="false" autoIncrementSequenceName="ar_snapshot_invoice_no_seq" defaultValue="" name="customer_code" nullable="0" physicalName="customer_code" precision="10" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL217" populated="true" UUID="7658ba2b-611f-45d3-9bb3-a840a7c13b00" autoIncrement="false" autoIncrementSequenceName="ar_snapshot_debt_type_seq" defaultValue="" name="debt_type" nullable="0" physicalName="debt_type" precision="100" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>ปกติ(1-60)
+เผ้าระวัง(61-90)
+ความเสี่ยงสูง(91+)
+สงสัยจะสูญ</remarks>
+    </column>
+    <column id="COL218" populated="true" UUID="e65242ed-6fc9-4f5b-9197-6b41b3ff37d1" autoIncrement="false" autoIncrementSequenceName="ar_snapshot_snapshot_year_seq" defaultValue="" name="snapshot_year" nullable="0" physicalName="snapshot_year" precision="0" primaryKeySeq="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL219" populated="true" UUID="a2d9e654-e028-4e12-8131-cd001053be0b" autoIncrement="false" autoIncrementSequenceName="ar_snapshot_snapshot_month_seq" defaultValue="" name="snapshot_month" nullable="0" physicalName="snapshot_month" precision="0" primaryKeySeq="3" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL220" populated="true" UUID="e5d1f703-973b-400e-817c-56e6c147da94" autoIncrement="false" autoIncrementSequenceName="ar_snapshot_customer_name_seq" defaultValue="" name="customer_name" nullable="0" physicalName="customer_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL221" populated="true" UUID="b3481eb4-1e58-43f9-9a3c-95997eb34be9" autoIncrement="false" autoIncrementSequenceName="ar_snapshot_invoice_aging_seq" defaultValue="" name="credit_limit" nullable="0" physicalName="credit_limit" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks></remarks>
+    </column>
+    <column id="COL222" populated="true" UUID="bf7b17c1-e0a8-43b1-ab7c-144138b42429" autoIncrement="false" autoIncrementSequenceName="ar_snapshot_salesman_code_seq" defaultValue="" name="salesman_code" nullable="0" physicalName="salesman_code" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL223" populated="true" UUID="ea6a8597-e049-4a1d-9c71-076b34df0a66" autoIncrement="false" autoIncrementSequenceName="ar_snapshot_salesman_name_seq" defaultValue="" name="salesman_name" nullable="0" physicalName="salesman_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL224" populated="true" UUID="62886841-cdd3-45f7-88a9-30d7b030010a" autoIncrement="false" autoIncrementSequenceName="ar_snapshot_invoice_amount_seq" defaultValue="" name="debt_amount" nullable="0" physicalName="debt_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks>ยอดหนี้ตาม debt_type</remarks>
+    </column>
+    <column id="COL225" populated="true" UUID="440616c3-f95d-47a2-9dca-4c1d04485bb6" autoIncrement="false" autoIncrementSequenceName="ar_snapshot_total_debt_amount_seq" defaultValue="" name="total_debt_amount" nullable="0" physicalName="total_debt_amount" precision="15" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks>ยอดหนี้ทั้งหมดของลูกค้า (ไม่สนใจ invoice date)</remarks>
+    </column>
+    <column id="COL226" populated="true" UUID="71161e55-2f5a-4731-88f9-1458ae10fa24" autoIncrement="false" autoIncrementSequenceName="ar_snapshot_created_dttm_seq" defaultValue="" name="created_dttm" nullable="0" physicalName="created_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    <column id="COL227" populated="true" UUID="551b3503-bffc-4646-af52-ef043ff23516" autoIncrement="false" autoIncrementSequenceName="ar_snapshot_updated_dttm_seq" defaultValue="" name="updated_dttm" nullable="0" physicalName="updated_dttm" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB2153" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB2152" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB2154" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX228" populated="true" UUID="4c4a6433-7207-45d6-8099-863482a3c92d" clustered="false" name="ar_snapshot_pk" physicalName="ar_aging_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC229" populated="true" UUID="05f6c680-282d-4ca6-b2fc-e67720346842" ascendingOrDescending="UNSPECIFIED" column-ref="COL216" name="customer_code" physicalName="customer_code" />
+     <index-column id="IDC230" populated="true" UUID="70c67b32-567d-4894-8766-e08c11bf7c0d" ascendingOrDescending="UNSPECIFIED" column-ref="COL217" name="debt_type" physicalName="debt_type" />
+     <index-column id="IDC231" populated="true" UUID="0a1bd605-9301-4215-8ac6-5b04c37c92e6" ascendingOrDescending="UNSPECIFIED" column-ref="COL218" name="snapshot_year" physicalName="snapshot_year" />
+     <index-column id="IDC232" populated="true" UUID="320920b6-1e0b-4702-a8e9-158707434108" ascendingOrDescending="UNSPECIFIED" column-ref="COL219" name="snapshot_month" physicalName="snapshot_month" />
+    </index>
+   </folder>
+  </table>
+  <relationships>
+   <relationship id="REL233" populated="true" UUID="7979b7c3-bb2f-40f9-afc7-4aa13e37d9e2" deferrability="7" deleteRule="3" fk-table-ref="TAB134" fkCardinality="7" identifying="true" name="ar_master_ar_master_daily_fk" physicalName="ar_master_ar_master_daily_fk" pk-table-ref="TAB121" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP234" populated="true" UUID="c5d806e1-74a5-40d9-b5e0-de06c1b133a1" fk-column-ref="COL135" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL122" />
+   </relationship>
+   <relationship id="REL235" populated="true" UUID="c547baf8-2fd1-4e6f-adcb-9ac4385a8486" deferrability="7" deleteRule="3" fk-table-ref="TAB146" fkCardinality="7" identifying="true" name="ar_master_ar_master_weekly_fk" physicalName="ar_master_ar_master_weekly_fk" pk-table-ref="TAB121" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP236" populated="true" UUID="a3d68e8a-22be-4b07-b315-76d5ecd1c3f8" fk-column-ref="COL147" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL122" />
+   </relationship>
+  </relationships>
+ </target-database>
+ <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="true" target-catalog="test"> </ddl-generator>
+ <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
+ <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
+ <play-pen zoom="1.0" viewportX="0" viewportY="3" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+  <table-pane table-ref="TAB1" x="42" y="16" bgColor="0xb9bbf6" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB27" x="272" y="34" bgColor="0xb9bbf6" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB46" x="30" y="379" bgColor="0xb9bbf6" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB70" x="283" y="285" bgColor="0xb9bbf6" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB85" x="481" y="34" bgColor="0xb9bbf6" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB121" x="772" y="165" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB134" x="1003" y="51" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB146" x="1003" y="225" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB158" x="769" y="56" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB164" x="285" y="490" bgColor="0xb9bbf6" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB180" x="480" y="491" bgColor="0xb9bbf6" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB191" x="918" y="395" bgColor="0xb9bbf6" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB215" x="707" y="392" bgColor="0xb9bbf6" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL233" pkConnection="0.09061488673139159" fkConnection="0.6511627906976745" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL235" pkConnection="0.11003236245954692" fkConnection="0.6046511627906976" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+ </play-pen>
+ <critic-manager>
+  <critic-grouping platformType="Generic" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PrimaryKeyCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.RelationshipMappingTypeCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.EmptyRelationshipCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericSequenceNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetDefaultOnColumnWithNoDefaultCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetNullOnNonNullableColumnCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DuplicateNameCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="DB2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DB2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="H2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.H2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="HSQLDB" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.HSQLDBUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="MySQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLCommentCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="Oracle" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OraclePhysicalNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="PostgreSQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PostgreSQLReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerUnsupportedFeaturesCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2000" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2000UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2005" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2005UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+ </critic-manager>
+ <profiles topNCount="10">
+  </profiles>
+  <olap>
+  </olap>
+  <olap-gui>
+  </olap-gui>
+</architect-project>

@@ -1,0 +1,17 @@
+Server
+	User: SD_itadmin
+	Password: P@ssw0rd
+	User: bluecode
+	Password: P@ssw0rd
+
+Teamviewer
+	ID: 336337203
+	Password: 123456
+
+Database Connection
+	Connection Type: MySQL
+	Host: biserver
+	User: root
+	Password: root
+	Port: 3306
+	Databases: syndome_dwh, syndome_etl
