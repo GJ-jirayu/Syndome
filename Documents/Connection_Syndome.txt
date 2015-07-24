@@ -1,17 +1,40 @@
 Server
+
 	User: SD_itadmin
-	Password: P@ssw0rd
-	User: bluecode
+
 	Password: P@ssw0rd
 
-Teamviewer
-	ID: 336337203
-	Password: 123456
+	User: bluecode
+
+	Password: P@ssw0rd
+
+
 
 Database Connection
+
 	Connection Type: MySQL
+
 	Host: biserver
+
 	User: root
+
 	Password: root
+
 	Port: 3306
+
 	Databases: syndome_dwh, syndome_etl
+
+
+
+Express Connection
+
+
+	ต้องทำการเพิ่ม DataSource(ODBC) โดยเพิ่มที่ Tab User DSN แล้วระบุ Path ที่เก็บ Express เก็บข้อมูลอยู่
+ตามรูป DataSource(ODBC).png, ODBC_Connection_Syndome.png
+
+Teamviewer
+
+	ID: 336337203
+
+	Password: 123456
+
